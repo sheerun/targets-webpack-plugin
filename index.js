@@ -1,3 +1,5 @@
+"use strict";
+
 const SourceMapSource = require("webpack-sources").SourceMapSource;
 const RawSource = require("webpack-sources").RawSource;
 const ModuleFilenameHelpers = require("webpack/lib/ModuleFilenameHelpers");
