@@ -1,4 +1,5 @@
 /* globals describe it */
+
 require("should");
 const RawSource = require("webpack-sources").RawSource;
 const BabelPlugin = require("../index");

@@ -13,9 +13,6 @@ matrix:
       node_js: "6"
       env: JOB_PART=test
     - os: linux
-      node_js: "4.7"
-      env: JOB_PART=test
-    - os: linux
       node_js: "7"
       env: JOB_PART=test
 before_install:

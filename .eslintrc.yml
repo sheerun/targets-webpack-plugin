@@ -229,7 +229,7 @@ rules:
   space-infix-ops: error
   space-unary-ops: error
   spaced-comment: 'off'
-  strict: 'off'
+  strict: error
   symbol-description: error
   template-curly-spacing: error
   unicode-bom:
