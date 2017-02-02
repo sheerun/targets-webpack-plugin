@@ -1,5 +1,5 @@
 const SourceMapSource = require("webpack-sources").SourceMapSource;
-const RawSource = require("webpack-sources").RawSource;
+const OriginalSource = require("webpack-sources").OriginalSource;
 const ModuleFilenameHelpers = require("webpack/lib/ModuleFilenameHelpers");
 const RequestShortener = require("webpack/lib/RequestShortener");
 const babel = require("babel-core");
@@ -68,7 +68,8 @@ class BabelPlugin {
 
 						compilation.assets[file] = (map ?
 							new SourceMapSource(source, file, map, input, inputSourceMap) :
-							new RawSource(source));
+							new OriginalSource(source, file));
+
 						compilation.assets[file].__BabelPlugin = compilation.assets[file];
 
 					} catch(err) {
