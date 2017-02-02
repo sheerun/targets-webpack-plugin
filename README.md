@@ -4,7 +4,7 @@
 
 A babel plugin (not a loader) for webpack.
 
-Webpack 2 can handle native ES2015 modules, so there's no need to run babel on every modules before passing it to webpack. Doing so just adds to compile time. In addition, as loaders are updated to return ES2015, you would need to add a babel loader to the top of the chain for every single filetype.
+Webpack 2 can handle native ES2015 modules, so there's no need to run babel on every module before passing it to webpack. Doing so just adds to compile time. In addition, as loaders are updated to return ES2015, you would need to add a babel loader to the top of the chain for every single filetype.
 
 This plugin runs babel only once per asset, at the end of the compilation process.
 
@@ -23,7 +23,7 @@ plugins: [
 	new BabelPlugin({
 		test: /\.js$/,
 		presets: ['es2015'],
-	   sourceMaps: false,
+		sourceMaps: false,
 		compact: false
 	})
 ]
