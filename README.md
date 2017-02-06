@@ -1,4 +1,4 @@
-# babel-webpack-plugin [![npm](https://img.shields.io/npm/v/babel-webpack-plugin.svg)](https://www.npmjs.com/package/babel-webpack-plugin) [![Build Status](https://travis-ci.org/simlrh/babel-webpack-plugin.svg?branch=master)](https://travis-ci.org/simlrh/babel-webpack-plugin)
+# babel-webpack-plugin [![npm](https://img.shields.io/npm/v/babel-webpack-plugin.svg)](https://www.npmjs.com/package/babel-webpack-plugin) [![Build Status](https://travis-ci.org/simlrh/babel-webpack-plugin.svg?branch=master)](https://travis-ci.org/simlrh/babel-webpack-plugin) [![Donate](https://nourish.je/assets/images/donate.svg)](http://ko-fi.com/A250KJT)
 
 >Babel is a compiler for writing next generation JavaScript.
 
