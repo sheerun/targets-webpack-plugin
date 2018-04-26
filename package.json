@@ -7,11 +7,13 @@
     "url": "https://sheerun.net"
   },
   "description": "Webpack plugin for logacy browser transcompilation (including dependencies)",
-  "main": "index.js",
+  "main": "dist.js",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
     "babel-runtime": "^6.26.0",
+    "core-js": "^2.5.5",
+    "regenerator-runtime": "^0.11.1",
     "rollup": "^0.58.2",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-hypothetical": "^2.1.0",
@@ -20,6 +22,7 @@
     "webpack-sources": "^0.1.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.46",
     "eslint": "^3.14.1",
     "mocha": "^3.2.0",
     "should": "^11.2.0"
@@ -28,7 +31,8 @@
     "test": "mocha",
     "lint": "eslint lib test",
     "travis:test": "npm run test",
-    "travis:lint": "npm run lint"
+    "travis:lint": "npm run lint",
+    "build": "babel index.js -o dist.js"
   },
   "license": "MIT",
   "repository": {
