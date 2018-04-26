@@ -6,11 +6,15 @@ This plugin runs babel and rollup only once per asset, at the end of the compila
 
 ## Installation
 
-   npm install --save-dev targets-webpack-plugin
+```
+npm install --save-dev targets-webpack-plugin
+```
 
 or
 
-   yarn add --dev targets-webpack-plugin
+```
+yarn add --dev targets-webpack-plugin
+```
 
 ## Usage
 
