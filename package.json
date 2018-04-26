@@ -1,21 +1,25 @@
 {
-  "name": "babel-webpack-plugin",
-  "version": "0.1.1",
+  "name": "targets-webpack-plugin",
+  "version": "1.0.0",
   "author": {
-    "name": "Steve Le Roy Harris",
-    "email": "steve@nourish.je",
-    "url": "https://nourish.je"
+    "name": "Adam Stankiewicz",
+    "email": "sheerun@sher.pl",
+    "url": "https://sheerun.net"
   },
-  "description": "babel plugin (not loader) for webpack",
+  "description": "Webpack plugin for logacy browser transcompilation (including dependencies)",
   "main": "index.js",
   "dependencies": {
-    "babel-core": "^6.22.1",
-    "source-map": "^0.5.6",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "babel-runtime": "^6.26.0",
+    "rollup": "^0.58.2",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-hypothetical": "^2.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "webpack": "^2.2.0",
     "webpack-sources": "^0.1.4"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.22.0",
     "eslint": "^3.14.1",
     "mocha": "^3.2.0",
     "should": "^11.2.0"
@@ -27,8 +31,8 @@
     "travis:lint": "npm run lint"
   },
   "license": "MIT",
-  "repository" : {
-	  "type" : "git",
-	  "url" : "https://github.com/simlrh/babel-webpack-plugin.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simlrh/babel-webpack-plugin.git"
   }
 }
