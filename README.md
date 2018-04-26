@@ -6,21 +6,22 @@ This plugin runs babel and rollup only once per asset, at the end of the compila
 
 ## Installation
 
-   npm install targets-webpack-plugin
+   npm install --save-dev targets-webpack-plugin
+
+or
+
+   yarn add --dev targets-webpack-plugin
 
 ## Usage
 
 Add TargetsPlugin to the list of plugins.
 
 ```js
-var TargetsPlugin = require("targets-webpack-plugin");
+const TargetsPlugin = require("targets-webpack-plugin");
 
-plugins: [
-	new TargetsPlugin({
-		test: /\.js$/,
-    browsers: ["last 2 versions", "chrome >= 41"]
-	})
-]
+config.plugins.push(new TargetsPlugin({
+  browsers: ["last 2 versions", "chrome >= 41"]
+}))
 ```
 
 ## License
