@@ -37,7 +37,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simlrh/babel-webpack-plugin.git"
+    "url": "https://github.com/sheerun/targets-webpack-plugin.git"
   },
   "files": ["dist.js"]
 }

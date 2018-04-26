@@ -1,4 +1,4 @@
-# targets-webpack-plugin [![npm](https://img.shields.io/npm/v/targets-webpack-plugin.svg)](https://www.npmjs.com/package/targets-webpack-plugin) [![Build Status](https://travis-ci.org/simlrh/targets-webpack-plugin.svg?branch=master)](https://travis-ci.org/simlrh/targets-webpack-plugin) [![Donate](https://nourish.je/assets/images/donate.svg)](http://ko-fi.com/A250KJT)
+# targets-webpack-plugin [![npm](https://img.shields.io/npm/v/targets-webpack-plugin.svg)](https://www.npmjs.com/package/targets-webpack-plugin)
 
 A babel plugin for transcompilig final bundles so they support legacy browsers.
 
