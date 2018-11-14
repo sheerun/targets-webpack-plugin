@@ -5,54 +5,82 @@ const RawSource = require("webpack-sources").RawSource;
 const TargetsPlugin = require("../index");
 
 const testFixtures = {
-	"test1.js": new RawSource("const n = Object.assign({ foo: 'bar' }); [].includes(12)")
+  "test1.js": new RawSource(
+    "const n = Object.assign({ foo: 'bar' }); n.includes(12)"
+  )
 };
 const testExpected = {
-	"test1.js": new RawSource('"use strict";\n\nvar n = 1;')
+  "test1.js": /var n=Object.assign\({foo:'bar'}\);n.includes\(12\);/
 };
 
 function test(options, fixtures, expected, done) {
-	const compilation = {
-		errors: [],
-		assets: fixtures,
-		additionalChunkAssets: [],
-		testExpected() {
-			Object.keys(fixtures).forEach((key) => {
+  const compilation = {
+    errors: [],
+    assets: fixtures,
+    additionalChunkAssets: [],
+    testExpected() {
+      if (compilation.errors.length > 0) {
+        throw compilation.errors[0];
+      }
+      Object.keys(fixtures).forEach(key => {
         console.log(this.assets[key].source())
-        if (this.assets[key].source().indexOf('$export$1') === -1) {
-          throw this.assets[key].source()
+        if (!this.assets[key].source().match(expected[key])) {
+          throw new Error(
+            "\nExpected:" +
+              expected[key] +
+              "\nResult:\n" +
+              this.assets[key].source()
+          );
         }
-			}, this);
-		},
-		plugin(name, fn) {
-			if (name === "optimize-chunk-assets") {
-				// Pass dummy chunks
-				fn([{ files: Object.keys(fixtures) }], () => {
-          try {
-            compilation.testExpected();
-            done()
-          } catch (e) {
-            done(e)
+      }, this);
+    },
+    hooks: {
+      buildModule: {
+        tap: function(name, fn) {
+          fn({ module: { useSourceMap: false } });
+        }
+      },
+      optimizeChunkAssets: {
+        tapPromise: function(name, fn) {
+          if (name === "targets-optimize-chunk-assets") {
+            // Pass dummy chunks
+            fn([{ files: Object.keys(fixtures) }]).then(
+              () => {
+                try {
+                  compilation.testExpected();
+                  done();
+                } catch (e) {
+                  done(e);
+                }
+              },
+              function(e) {
+                done(e);
+              }
+            );
           }
-				});
-			}
-		}
-	};
-	const compiler = {
-		context: "./",
-		plugin(name, fn) {
-			if (name === "compilation") {
-        fn(compilation);
-			}
-		}
-	};
+        }
+      }
+    }
+  };
+  const compiler = {
+    context: "./",
+    hooks: {
+      compilation: {
+        tap: function(name, fn) {
+          if (name === "targets-compilation") {
+            fn(compilation);
+          }
+        }
+      }
+    }
+  };
 
-	const plugin = new TargetsPlugin(options);
-	plugin.apply(compiler);
+  const plugin = new TargetsPlugin(options);
+  plugin.apply(compiler);
 }
 
 describe("babel-webpack-plugin", () => {
-	it("should run babel on chunk files", (done) => {
-		test({}, testFixtures, testExpected, done);
-	});
+  it("should run babel on chunk files", done => {
+    test({}, testFixtures, testExpected, done);
+  });
 });
