@@ -1,6 +1,6 @@
 {
   "name": "targets-webpack-plugin",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "author": {
     "name": "Adam Stankiewicz",
     "email": "sheerun@sher.pl",
@@ -8,6 +8,9 @@
   },
   "description": "Webpack plugin for logacy browser transcompilation (including dependencies)",
   "main": "index.js",
+  "engines" : {
+    "node" : ">=8"
+  },
   "dependencies": {
     "@babel/core": "^7",
     "@babel/preset-env": "^7",
