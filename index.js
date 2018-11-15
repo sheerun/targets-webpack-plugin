@@ -86,9 +86,6 @@ class TargetsPlugin {
                   delete fileOptions.inputSourceMap;
                 }
 
-                fileOptions.sourceRoot = "";
-                fileOptions.sourceFileName = file;
-
                 const result = babel.transform(input, fileOptions);
                 const source = result.code;
                 const map = result.map;
