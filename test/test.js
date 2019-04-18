@@ -5,12 +5,12 @@ const RawSource = require("webpack-sources").RawSource;
 const TargetsPlugin = require("../index");
 
 const testFixtures = {
-  "test1.js": new RawSource(
+  "test2.js": new RawSource(
     "const n = Object.assign({ foo: 'bar' }); n.includes(12)"
   )
 };
 const testExpected = {
-  "test1.js": /var n=Object.assign\({foo:'bar'}\);n.includes\(12\);/
+  "test2.js": /var n=Object.assign\({foo:'bar'}\);n.includes\(12\);/
 };
 
 function test(options, fixtures, expected, done) {
@@ -23,7 +23,6 @@ function test(options, fixtures, expected, done) {
         throw compilation.errors[0];
       }
       Object.keys(fixtures).forEach(key => {
-        console.log(this.assets[key].source())
         if (!this.assets[key].source().match(expected[key])) {
           throw new Error(
             "\nExpected:" +

@@ -57,6 +57,7 @@ class TargetsPlugin {
                       {
                         targets: { browsers },
                         useBuiltIns: "usage",
+                        corejs: 3,
                         modules: false,
                         exclude: ["transform-typeof-symbol"]
                       }
@@ -94,8 +95,7 @@ class TargetsPlugin {
                   input: "./input.js",
                   plugins: [
                     nodeResolve({
-                      jsnext: true,
-                      main: true
+                      mainFields: ['module', 'main']
                     }),
                     commonJs({
                       include: ["node_modules/**"]
@@ -119,8 +119,8 @@ class TargetsPlugin {
                   sourcemap: options.sourceMaps
                 });
 
-                const source2 = result2.code;
-                const map2 = result2.map;
+                const source2 = result2.output[0].code;
+                const map2 = result2.output[0].map;
 
                 compilation.assets[file] = options.sourceMaps
                   ? new SourceMapSource(
