@@ -26,7 +26,8 @@ class TargetsPlugin {
     const requestShortener = new RequestShortener(compiler.context);
     compiler.hooks.compilation.tap("targets-compilation", compilation => {
       compilation.hooks.optimizeChunkAssets.tapPromise(
-        "targets-optimize-chunk-assets", (chunks) => {
+        "targets-optimize-chunk-assets",
+        chunks => {
           let files = [];
           chunks.forEach(chunk => files.push(...chunk.files));
           files.push(...compilation.additionalChunkAssets);
@@ -83,7 +84,7 @@ class TargetsPlugin {
                 }
 
                 if (fileOptions.inputSourceMap === null) {
-                  inputSourceMap = undefined
+                  inputSourceMap = undefined;
                   delete fileOptions.inputSourceMap;
                 }
 
@@ -95,17 +96,19 @@ class TargetsPlugin {
                   input: "./input.js",
                   plugins: [
                     nodeResolve({
-                      mainFields: ['module', 'main']
+                      mainFields: ["module", "main"]
                     }),
                     commonJs({
                       include: ["node_modules/**"]
                     }),
                     hypothetical({
                       files: {
-                        "./input.js": options.sourceMaps ? {
-                          code: source,
-                          map: inputSourceMap
-                        } : source
+                        "./input.js": options.sourceMaps
+                          ? {
+                              code: source,
+                              map: inputSourceMap
+                            }
+                          : source
                       },
                       allowFallthrough: true
                     })
@@ -123,11 +126,7 @@ class TargetsPlugin {
                 const map2 = result2.output[0].map;
 
                 compilation.assets[file] = options.sourceMaps
-                  ? new SourceMapSource(
-                      source2,
-                      file,
-                      map2
-                    )
+                  ? new SourceMapSource(source2, file, map2)
                   : new OriginalSource(source2, file);
 
                 // compilation.assets[file].__TargetsPlugin =
