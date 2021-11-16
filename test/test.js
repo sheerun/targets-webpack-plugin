@@ -81,5 +81,5 @@ function test(options, fixtures, expected, done) {
 describe("babel-webpack-plugin", () => {
   it("should run babel on chunk files", done => {
     test({}, testFixtures, testExpected, done);
-  });
+  }).timeout(5000);
 });
