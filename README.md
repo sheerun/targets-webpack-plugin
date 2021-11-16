@@ -1,6 +1,6 @@
 # targets-webpack-plugin [![npm](https://img.shields.io/npm/v/targets-webpack-plugin.svg)](https://www.npmjs.com/package/targets-webpack-plugin)
 
-A babel plugin for transcompilig final bundles so they support legacy browsers.
+A babel plugin for transcompiling final bundles so they support legacy browsers.
 
 This plugin runs babel and rollup only once per asset, at the end of the compilation process.
 
@@ -32,7 +32,7 @@ module.exports = {
       }))
     }
     return config
-  }  
+  }
 }
 ```
 

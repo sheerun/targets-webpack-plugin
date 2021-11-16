@@ -6,7 +6,7 @@
     "email": "sheerun@sher.pl",
     "url": "https://sheerun.net"
   },
-  "description": "Webpack plugin for logacy browser transcompilation (including dependencies)",
+  "description": "Webpack plugin for legacy browser transcompilation (including dependencies)",
   "main": "index.js",
   "engines": {
     "node": ">=8"
