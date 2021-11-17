@@ -4,8 +4,8 @@ const ModuleFilenameHelpers = require("webpack/lib/ModuleFilenameHelpers");
 const RequestShortener = require("webpack/lib/RequestShortener");
 const babel = require("@babel/core");
 const rollup = require("rollup");
-const commonJs = require("rollup-plugin-commonjs");
-const nodeResolve = require("rollup-plugin-node-resolve");
+const commonJs = require("@rollup/plugin-commonjs");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const hypothetical = require("rollup-plugin-hypothetical");
 
 class TargetsPlugin {
@@ -117,7 +117,7 @@ class TargetsPlugin {
 
                 const result2 = await bundle.generate({
                   format: "iife",
-                  moduleName: "App",
+                  name: "App",
                   indent: false,
                   sourcemap: options.sourceMaps
                 });
